@@ -223,10 +223,6 @@ function checkGuess() {
     toastr.error("Not enough letters!");
     return;
   }
-  if (!currentWords.includes(guessString)) {
-    toastr.error("Word not in list!");
-    return;
-  }
 
   var letterColor = Array(wordLength).fill("gray");
 
