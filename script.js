@@ -1,4 +1,4 @@
-import { WORDS, DEFINITIONS } from "./words.js";
+import { WORDS, DEFINITIONS } from "./words.js?v=2";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
 import { getDatabase, ref, set, onValue, get, onDisconnect } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";
 
