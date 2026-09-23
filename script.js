@@ -356,8 +356,8 @@ document.getElementById("multiplayer-btn").addEventListener("click", () => {
 });
 
 document.getElementById("play-again-btn").addEventListener("click", () => {
-  if (isMultiplayer && playerRef) {
-    set(playerRef, null); // Exit room
+  if (isMultiplayer && roomRef) {
+    set(roomRef, null); // Completely delete the room
   }
   isMultiplayer = false;
   let game = document.getElementById("game-wrapper");
