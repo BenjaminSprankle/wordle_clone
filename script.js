@@ -44,6 +44,10 @@ function resetGame() {
     wordRarityIndex = Math.floor(Math.random() * currentWords.length);
   } else {
     currentWords = WORDS[wordLength];
+    // Failsafe for stale rooms created before the dictionary update
+    if (wordRarityIndex >= currentWords.length) {
+        wordRarityIndex = Math.floor(Math.random() * currentWords.length);
+    }
   }
   
   rightGuessString = currentWords[wordRarityIndex];
