@@ -53,3 +53,39 @@ h1 {
   cursor: pointer;
   text-transform: uppercase;
 }
+
+/* NEW STYLES */
+.hidden {
+  display: none !important;
+}
+
+#home-screen {
+  text-align: center;
+  margin-top: 50px;
+}
+
+#game-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  transition: transform 0.5s ease;
+}
+
+#game-area {
+  flex-shrink: 0;
+  transition: transform 0.5s ease;
+}
+
+#end-screen {
+  max-width: 300px;
+  margin-left: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  text-align: left;
+}
+
+.slide-left {
+  transform: translateX(-50px);
+}

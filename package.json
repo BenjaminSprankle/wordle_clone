@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "start": "live-server build"
+  },
   "dependencies": {
     "live-server": "^1.2.1"
   }

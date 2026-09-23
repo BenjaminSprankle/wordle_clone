@@ -15,44 +15,85 @@
 <body>
     <h1> Wordle Clone </h1>
     
-    <div id="game-board">
-
+    <div id="home-screen" class="screen animate__animated">
+        <h2>Settings</h2>
+        <div style="margin: 20px 0;">
+            <label for="word-length">Word Length: </label>
+            <select id="word-length">
+                <option value="4">4 Letters</option>
+                <option value="5" selected>5 Letters</option>
+                <option value="6">6 Letters</option>
+            </select>
+        </div>
+        <button id="play-btn" style="padding: 10px 20px; font-size: 1.2rem; margin-right: 10px;">Single Player</button>
+        <button id="multiplayer-btn" style="padding: 10px 20px; font-size: 1.2rem;">Multiplayer</button>
     </div>
 
-    <div id="keyboard-cont">
-        <div class="first-row">
-            <button class="keyboard-button">q</button>
-            <button class="keyboard-button">w</button>
-            <button class="keyboard-button">e</button>
-            <button class="keyboard-button">r</button>
-            <button class="keyboard-button">t</button>
-            <button class="keyboard-button">y</button>
-            <button class="keyboard-button">u</button>
-            <button class="keyboard-button">i</button>
-            <button class="keyboard-button">o</button>
-            <button class="keyboard-button">p</button>
+    <div id="lobby-screen" class="screen hidden animate__animated">
+        <h2>Multiplayer Lobby</h2>
+        <div style="margin: 20px 0;">
+            <label for="room-code">Room Code: </label>
+            <input type="text" id="room-code" placeholder="e.g. GRANDMA" style="padding: 5px; font-size: 1.1rem; text-transform: uppercase;">
         </div>
-        <div class="second-row">
-            <button class="keyboard-button">a</button>
-            <button class="keyboard-button">s</button>
-            <button class="keyboard-button">d</button>
-            <button class="keyboard-button">f</button>
-            <button class="keyboard-button">g</button>
-            <button class="keyboard-button">h</button>
-            <button class="keyboard-button">j</button>
-            <button class="keyboard-button">k</button>
-            <button class="keyboard-button">l</button>
+        <button id="join-room-btn" style="padding: 10px 20px; font-size: 1.2rem;">Join Game</button>
+        <div id="lobby-status" style="margin-top: 20px; font-style: italic;"></div>
+    </div>
+
+    <div id="game-wrapper" class="screen hidden animate__animated">
+        <div id="game-area">
+            <div id="game-board"></div>
+            <div id="keyboard-cont">
+                <div class="first-row">
+                    <button class="keyboard-button">q</button>
+                    <button class="keyboard-button">w</button>
+                    <button class="keyboard-button">e</button>
+                    <button class="keyboard-button">r</button>
+                    <button class="keyboard-button">t</button>
+                    <button class="keyboard-button">y</button>
+                    <button class="keyboard-button">u</button>
+                    <button class="keyboard-button">i</button>
+                    <button class="keyboard-button">o</button>
+                    <button class="keyboard-button">p</button>
+                </div>
+                <div class="second-row">
+                    <button class="keyboard-button">a</button>
+                    <button class="keyboard-button">s</button>
+                    <button class="keyboard-button">d</button>
+                    <button class="keyboard-button">f</button>
+                    <button class="keyboard-button">g</button>
+                    <button class="keyboard-button">h</button>
+                    <button class="keyboard-button">j</button>
+                    <button class="keyboard-button">k</button>
+                    <button class="keyboard-button">l</button>
+                </div>
+                <div class="third-row">
+                    <button class="keyboard-button">Del</button>
+                    <button class="keyboard-button">z</button>
+                    <button class="keyboard-button">x</button>
+                    <button class="keyboard-button">c</button>
+                    <button class="keyboard-button">v</button>
+                    <button class="keyboard-button">b</button>
+                    <button class="keyboard-button">n</button>
+                    <button class="keyboard-button">m</button>
+                    <button class="keyboard-button">Enter</button>
+                </div>
+            </div>
         </div>
-        <div class="third-row">
-            <button class="keyboard-button">Del</button>
-            <button class="keyboard-button">z</button>
-            <button class="keyboard-button">x</button>
-            <button class="keyboard-button">c</button>
-            <button class="keyboard-button">v</button>
-            <button class="keyboard-button">b</button>
-            <button class="keyboard-button">n</button>
-            <button class="keyboard-button">m</button>
-            <button class="keyboard-button">Enter</button>
+        <div id="end-screen" class="hidden" style="width: 100%; max-width: 500px; text-align: center;">
+            <h1 id="win-lose-title" style="font-size: 3rem; margin-bottom: 10px;"></h1>
+            <h2 id="end-word"></h2>
+            <div id="end-rarity" style="margin-bottom: 10px; font-weight: bold; color: #555;"></div>
+            
+            <div id="multiplayer-result" style="text-align: left; margin: 20px auto; width: fit-content;"></div>
+            
+            <div id="final-boards-container" style="display: flex; flex-direction: column; align-items: center; gap: 20px; margin-top: 20px;"></div>
+
+            <div style="margin-top: 30px;">
+                <button id="show-def-btn" style="padding: 10px 20px; font-size: 1rem; margin-bottom: 10px;">Show Definition</button>
+                <div id="end-def" class="hidden" style="margin-bottom: 20px; font-style: italic;"></div>
+            </div>
+
+            <button id="play-again-btn" style="padding: 10px 20px; font-size: 1rem; margin-top: 20px;">Main Menu</button>
         </div>
     </div>
 
