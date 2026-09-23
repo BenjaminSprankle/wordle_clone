@@ -303,9 +303,9 @@ const animateCSS = (element, animation, prefix = "animate__") =>
     node.addEventListener("animationend", handleAnimationEnd, { once: true });
   });
 
-document.addEventListener("keyup", (e) => {
+function handleInput(key) {
   if (guessesRemaining === 0 || !gameActive) return;
-  let pressedKey = String(e.key);
+  let pressedKey = String(key);
   if (pressedKey === "Backspace" && nextLetter !== 0) {
     deleteLetter();
     return;
@@ -317,6 +317,10 @@ document.addEventListener("keyup", (e) => {
   let found = pressedKey.match(/[a-z]/gi);
   if (!found || found.length > 1) return;
   else insertLetter(pressedKey);
+}
+
+document.addEventListener("keyup", (e) => {
+  handleInput(e.key);
 });
 
 document.getElementById("keyboard-cont").addEventListener("click", (e) => {
@@ -325,7 +329,7 @@ document.getElementById("keyboard-cont").addEventListener("click", (e) => {
   if (!target.classList.contains("keyboard-button")) return;
   let key = target.textContent;
   if (key === "Del") key = "Backspace";
-  document.dispatchEvent(new KeyboardEvent("keyup", { key: key }));
+  handleInput(key);
 });
 
 function switchScreen(hideId, showId) {
